@@ -23,8 +23,8 @@ const resource =
 const sdk = new opentelemetry.NodeSDK({
   resource:resource,
   spanProcessor:new BatchSpanProcessor(
-    process.env.SERVER_SETUP === 'local'?
-    new ConsoleSpanExporter(): new ZipkinExporter()
+    process.env.SERVER_SETUP === 'prod'?
+     new ZipkinExporter():new ConsoleSpanExporter()
     ),
   /*spanProcessor:new BatchSpanProcessor(
     new OTLPTraceExporter({
@@ -34,11 +34,11 @@ const sdk = new opentelemetry.NodeSDK({
       headers: {},
     })),*/  
   instrumentations: [getNodeAutoInstrumentations()],
-  sampler:process.env.SERVER_SETUP === 'local'
-          ? new AlwaysOnSampler()
-          : new ParentBasedSampler({
-              root: new TraceIdRatioBasedSampler(1)
-          })
+  sampler:process.env.SERVER_SETUP === 'prod'
+          ?  new ParentBasedSampler({
+            root: new TraceIdRatioBasedSampler(1)
+        }):new AlwaysOnSampler()
+          
 });
 
 sdk.start();
