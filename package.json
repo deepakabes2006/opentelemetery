@@ -1,0 +1,28 @@
+{
+  "name": "opentelemetery",
+  "version": "1.0.0",
+  "description": "opentelemetery npm package",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deepakabes2006/opentelemetery.git"
+  },
+  "keywords": [],
+  "author": "Deepak kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deepakabes2006/opentelemetery/issues"
+  },
+  "homepage": "https://github.com/deepakabes2006/opentelemetery#readme",
+  "dependencies": {
+    "@opentelemetry/api": "^1.2.0",
+    "@opentelemetry/auto-instrumentations-node": "^0.31.0",
+    "@opentelemetry/exporter-zipkin": "^1.7.0",
+    "@opentelemetry/sdk-metrics": "^0.33.0",
+    "@opentelemetry/sdk-node": "^0.33.0",
+    "@opentelemetry/sdk-trace-node": "^1.7.0"
+  }
+}
