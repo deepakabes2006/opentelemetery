@@ -15,7 +15,7 @@ const { SemanticResourceAttributes } = require("@opentelemetry/semantic-conventi
 const resource =
   Resource.default().merge(
     new Resource({
-      [SemanticResourceAttributes.SERVICE_NAME]: "STUDIUM",
+      [SemanticResourceAttributes.SERVICE_NAME]: process.env.SERVICE_NAME || "STUDIUM",
       [SemanticResourceAttributes.SERVICE_VERSION]: "0.1.0",
     })
   );
